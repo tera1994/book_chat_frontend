@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import { Route, Routes, BrowserRouter } from "react-router-dom"
 import './App.css';
-
+import BookChatRoomList from "./pages/bookChatRoomList";
+import BookChatRoom from "./pages/bookChatRoom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/book-chat-room-list" element={<BookChatRoomList />} />
+        <Route path="/book-chat-room/:id" element={<BookChatRoom />} />
+        <Route path="*" element={<h1>Page Not Found</h1>} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 
