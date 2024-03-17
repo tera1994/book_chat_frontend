@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import css from "styled-jsx/css";
 
 const BookChatRoomList = () => {
+  const { className, styles } = css.resolve`
+    a {
+      text-decoration: none;
+    }
+  `;
   const [bookChatRoomList, setBookChatRoomList] = useState();
 
   useEffect(() => {
@@ -20,13 +26,13 @@ const BookChatRoomList = () => {
           bookChatRoomList.bookChatRoomList.map((item) => (
             <div className="grid-item">
               <Link
+                className={className}
                 to={`/book-chat-room/${item._id}`}
                 key={item._id}
-                style={{ textDecoration: "none" }}
               >
                 <h1>Chat Room</h1>
                 <h2>Book Title : {item.title}</h2>
-                <h2>Auther : {item.author}</h2>
+                <h2>Author : {item.author}</h2>
               </Link>
             </div>
           ))}
@@ -66,6 +72,7 @@ const BookChatRoomList = () => {
           color: #444;
         }
       `}</style>
+      {styles}
     </>
   );
 };

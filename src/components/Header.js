@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
+import css from "styled-jsx/css";
 const Header = () => {
+  const { className, styles } = css.resolve`
+    a {
+      text-decoration: none;
+    }
+  `;
   return (
     <>
       <header className="header">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" className={className}>
           <div className="logo">Book Chat</div>
         </Link>
         <nav>
           <ul className="nav-links">
             <li>
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/" className={className}>
                 <div className="link">Home</div>
               </Link>
             </li>
@@ -49,6 +55,7 @@ const Header = () => {
           }
         `}
       </style>
+      {styles}
     </>
   );
 };
