@@ -3,13 +3,15 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <Link to="/" className="logo">
-          Book Chat
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="logo">Book Chat</div>
         </Link>
         <nav>
           <ul className="nav-links">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <div className="link">Home</div>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -29,7 +31,6 @@ const Header = () => {
           .logo {
             font-size: 36px;
             font-weight: bold;
-            text-decoration: none;
             color: #fff;
           }
 
@@ -42,14 +43,9 @@ const Header = () => {
             list-style: none;
           }
 
-          .nav-links li a {
-            text-decoration: none;
+          .link {
             color: #fff;
             transition: color 0.3s ease;
-          }
-
-          .nav-links li a:hover {
-            color: #aaa;
           }
         `}
       </style>

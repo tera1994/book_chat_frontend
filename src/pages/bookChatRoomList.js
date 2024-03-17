@@ -18,22 +18,24 @@ const BookChatRoomList = () => {
       <div className="main container">
         {bookChatRoomList &&
           bookChatRoomList.bookChatRoomList.map((item) => (
-            <Link
-              className="grid-item"
-              to={`/book-chat-room/${item._id}`}
-              key={item._id}
-            >
-              <h1>Chat Room</h1>
-              <h2>Book Title : {item.title}</h2>
-              <h2>Auther : {item.author}</h2>
-            </Link>
+            <div className="grid-item">
+              <Link
+                to={`/book-chat-room/${item._id}`}
+                key={item._id}
+                style={{ textDecoration: "none" }}
+              >
+                <h1>Chat Room</h1>
+                <h2>Book Title : {item.title}</h2>
+                <h2>Auther : {item.author}</h2>
+              </Link>
+            </div>
           ))}
       </div>
       <style jsx>{`
         .main {
           position: relative;
           width: 100%;
-          height: 100vh;
+          height: 100%;
           background-color: #eee;
         }
         .container {
@@ -56,8 +58,11 @@ const BookChatRoomList = () => {
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        a {
-          text-decoration: none;
+        .grid-item h1 {
+          color: #444;
+        }
+
+        .grid-item h2 {
           color: #444;
         }
       `}</style>
