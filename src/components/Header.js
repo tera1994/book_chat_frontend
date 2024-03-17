@@ -35,6 +35,11 @@ const Header = () => {
                 Home
               </Link>
             </li>
+            <li>
+              <Link to="/create-book-chat-room" className={classNameNavATag}>
+                Create Chat Room
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -43,11 +48,9 @@ const Header = () => {
           .header {
             background-color: #0067c0;
             color: #fff;
-            padding: 1rem;
+            padding: 0.5rem 0.5rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 5px 5px 5px 10px rgba(0, 0, 0, 0.2);
           }
 
           .nav-links {
