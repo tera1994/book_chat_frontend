@@ -2,23 +2,19 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        <div className="container">
-          © 2024 Hoshun Terazumi All Rights Reserved.
-        </div>
+        © 2024 Hoshun Terazumi All Rights Reserved.
       </footer>
       <style jsx>
         {`
           .footer {
             background-color: #444;
             color: #fff;
-            position: absolute;
+            position: fixed;
             bottom: 0;
 
             width: 100%;
-            text-align: right;
-          }
-          .container {
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           }
         `}
       </style>

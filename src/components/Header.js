@@ -23,6 +23,7 @@ const Header = () => {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 5px 5px 5px 10px rgba(0, 0, 0, 0.2);
           }
 
           .logo {
