@@ -17,13 +17,12 @@ const Header = () => {
       <style jsx>
         {`
           .header {
-            background-color: #0067C0;
+            background-color: #0067c0;
             color: #fff;
             padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           }
 
           .logo {
