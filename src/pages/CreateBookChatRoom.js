@@ -84,7 +84,7 @@ const CreateBookChatRoom = () => {
           color: #fff;
           height: 32px;
           width: 128px;
-          border-radius: 32px;
+          border-radius: 12px;
           margin-bottom: 32px;
         }
         h1 {
