@@ -6,17 +6,20 @@ const CreateBookChatRoom = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/book-chat-room", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: title,
-          author: author,
-        }),
-      });
+      const response = await fetch(
+        "https://book-chat-backend.onrender.com/book-chat-room",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            author: author,
+          }),
+        }
+      );
       const jsonData = await response.json();
       alert(jsonData.message);
     } catch (err) {

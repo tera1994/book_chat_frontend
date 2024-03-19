@@ -12,7 +12,9 @@ const BookChatRoomList = () => {
 
   useEffect(() => {
     const getAllItems = async () => {
-      const response = await fetch("http://localhost:5000/book-chat-room-list");
+      const response = await fetch(
+        "https://book-chat-backend.onrender.com/book-chat-room-list"
+      );
       const jsonResponse = await response.json();
       setBookChatRoomList(jsonResponse);
     };
