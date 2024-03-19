@@ -56,7 +56,7 @@ const CreateBookChatRoom = () => {
       <style jsx>{`
         .main {
           position: relative;
-          height: 100vw;
+          height: 100vh;
           background-color: #eee;
 
           text-align: center;

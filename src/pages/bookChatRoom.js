@@ -46,29 +46,83 @@ const BookChatRoom = () => {
       name: `${name}`,
       message: `${message}`,
     });
+    setMessage("");
   };
   if (loginFlag) {
     return (
       <>
-        {messageList.map((message, index) => {
-          return (
-            <p key={index}>
-              {" "}
-              {message.socketId} {message.name} {message.message}
-            </p>
-          );
-        })}
-        <form onSubmit={handleSubmit2}>
-          <input
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            type="text"
-            name="message"
-            placeholder="メッセージ"
-            required
-          />
-          <button>送信</button>
-        </form>
+        <div className="main">
+          {messageList.map((message, index) => {
+            return (
+              <p
+                key={index}
+                className={message.socketId === socketId ? "me" : "other"}
+              >
+                <span>
+                  {message.name} : {message.message}
+                </span>
+              </p>
+            );
+          })}
+          <form onSubmit={handleSubmit2}>
+            <input
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              type="text"
+              name="message"
+              placeholder="メッセージ"
+              required
+            />
+            <button>Submit</button>
+          </form>
+        </div>
+        <style jsx>{`
+          .main {
+            position: relative;
+            height: 100vh;
+            background-color: #eee;
+
+            text-align: center;
+          }
+          p.me {
+            text-align: right;
+          }
+
+          p.me span {
+            background-color: #adcdec;
+            border-radius: 1rem;
+            border: 0.05rem solid rgb(223, 223, 223);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+
+          p.other {
+            text-align: left;
+          }
+          p.other span {
+            background-color: #fff;
+            border-radius: 1rem;
+            border: 0.05rem solid rgb(223, 223, 223);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+
+          input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+          }
+
+          button {
+            background: #0067c0;
+            color: #fff;
+            height: 32px;
+            width: 80px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+          }
+          h1 {
+            color: #444;
+          }
+        `}</style>
       </>
     );
   }
@@ -94,7 +148,7 @@ const BookChatRoom = () => {
       <style jsx>{`
         .main {
           position: relative;
-          height: 100vw;
+          height: 100vh;
           background-color: #eee;
 
           text-align: center;
