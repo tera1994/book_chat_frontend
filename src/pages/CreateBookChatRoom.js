@@ -27,13 +27,14 @@ const CreateBookChatRoom = () => {
     <>
       <div className="main">
         <form className="form" onSubmit={handleSubmit}>
+          <h1>Create Chat Room</h1>
           <div>
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               name="title"
-              placeholder="本タイトル"
+              placeholder="Book Title"
               required
             />
           </div>
@@ -43,7 +44,7 @@ const CreateBookChatRoom = () => {
               onChange={(e) => setAuthor(e.target.value)}
               type="text"
               name="author"
-              placeholder="作者"
+              placeholder="Author"
               required
             />
           </div>
@@ -71,6 +72,23 @@ const CreateBookChatRoom = () => {
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           top: 0%;
           left: 25%;
+        }
+
+        input {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
+        button {
+          background: #0067c0;
+          color: #fff;
+          height: 32px;
+          width: 128px;
+          border-radius: 32px;
+          margin-bottom: 32px;
+        }
+        h1 {
+          color: #444;
         }
       `}</style>
     </>
