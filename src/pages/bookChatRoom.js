@@ -14,7 +14,7 @@ const BookChatRoom = () => {
 
   useEffect(() => {
     console.log("aaaaaaaaaaaaa");
-    socket = io("https://book-chat-backend.onrender.com");
+    socket = io("https://book-chat-backend.onrender.com:10000");
     socket.on("connectid", (msg) => {
       setSocketId(msg.socketId);
     });
