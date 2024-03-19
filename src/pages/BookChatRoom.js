@@ -13,7 +13,6 @@ const BookChatRoom = () => {
   const [loginFlag, setLoginFlag] = useState(false);
 
   useEffect(() => {
-    console.log("aaaaaaaaaaaaa");
     socket = io("https://book-chat-backend.onrender.com");
     socket.on("connectid", (msg) => {
       setSocketId(msg.socketId);
