@@ -45,10 +45,20 @@ const BookChatRoomList = () => {
           height: 100%;
           background-color: #eee;
         }
-        .container {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 20px;
+        @media screen and (min-width: 768px) {
+          .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+          }
+        }
+
+        @media screen and (max-width: 767px) {
+          .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
         }
 
         .grid-item {
