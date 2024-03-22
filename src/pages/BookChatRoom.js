@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { io } from "socket.io-client";
@@ -12,8 +12,16 @@ const BookChatRoom = () => {
   const [message, setMessage] = useState("");
   const [loginFlag, setLoginFlag] = useState(false);
 
+  const scrollBottomRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (scrollBottomRef && scrollBottomRef.current) {
+      scrollBottomRef.current.scrollIntoView();
+    }
+  }, [messageList]);
+
   useEffect(() => {
-    socket = io("https://book-chat-backend.onrender.com");
+    socket = io("http://localhost:5000");
     socket.on("connectid", (msg) => {
       setSocketId(msg.socketId);
     });
@@ -51,18 +59,21 @@ const BookChatRoom = () => {
     return (
       <>
         <div className="main">
-          {messageList.map((message, index) => {
-            return (
-              <p
-                key={index}
-                className={message.socketId === socketId ? "me" : "other"}
-              >
-                <span>
-                  {message.name} : {message.message}
-                </span>
-              </p>
-            );
-          })}
+          <div className="chat-list">
+            {messageList.map((message, index) => {
+              return (
+                <p
+                  key={index}
+                  className={message.socketId === socketId ? "me" : "other"}
+                >
+                  <span>
+                    {message.name} : {message.message}
+                  </span>
+                </p>
+              );
+            })}
+            <div ref={scrollBottomRef} />
+          </div>
           <form onSubmit={handleSubmit2}>
             <input
               value={message}
@@ -78,10 +89,16 @@ const BookChatRoom = () => {
         <style jsx>{`
           .main {
             position: relative;
-            height: 100vh;
+            height: 90vh;
             background-color: #eee;
 
             text-align: center;
+          }
+          .chat-list {
+            width: 100%;
+            height: 90%;
+            overflow-y: scroll;
+            border: 1px #999999 solid;
           }
           p.me {
             text-align: right;
